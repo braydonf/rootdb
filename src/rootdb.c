@@ -2,7 +2,7 @@
 #include <openssl/sha.h>
 #include <lmdb.h>
 
-int main(int argc, char * argv[])
+int rootdb_open()
 {
   return 0;
 }
