@@ -4,7 +4,11 @@
 
 START_TEST (test_rootdb_open)
 {
-  int status = rootdb_open();
+
+  MDB_env *mdb_env;
+
+  int status = rootdb_open(mdb_env, "./testingdb");
+
   ck_assert_int_eq(status, 0);
 }
 END_TEST
