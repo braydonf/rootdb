@@ -1,0 +1,14 @@
+language: c
+sudo: false
+os: linux
+addons:
+  apt:
+    packages: build-essential libtool autotools-dev automake check liblmdb-dev libssl-dev
+compiler:
+- clang
+- gcc
+before_script:
+- ./autogen.sh
+script:
+- ./configure
+- make check
