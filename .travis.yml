@@ -1,14 +1,14 @@
 language: c
-sudo: false
 os: linux
-addons:
-  apt:
-    packages: build-essential libtool autotools-dev automake check liblmdb-dev libssl-dev
 compiler:
-- clang
-- gcc
+  - clang
+  - gcc
 before_script:
-- ./autogen.sh
+  - echo "deb http://us.archive.ubuntu.com/ubuntu/ trusty universe" | sudo tee -a /etc/apt/sources.list
+  - echo "deb-src http://us.archive.ubuntu.com/ubuntu/ trusty universe" | sudo tee -a /etc/apt/sources.list
+  - sudo apt-get update -qq
+  - sudo apt-get install -y build-essential libtool autotools-dev automake libssl-dev liblmdb-dev check
+  - ./autogen.sh
 script:
-- ./configure
-- make check
+  - ./configure
+  - make check
