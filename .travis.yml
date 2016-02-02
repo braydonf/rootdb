@@ -5,10 +5,10 @@ addons:
   apt:
     packages: build-essential libtool autotools-dev automake check liblmdb-dev libssl-dev
 compiler:
-- clang
-- gcc
+  - clang
+  - gcc
 before_script:
-- ./autogen.sh
+  - ./autogen.sh
 script:
-- ./configure
-- make check
+  - ./configure
+  - make check
