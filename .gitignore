@@ -16,8 +16,6 @@ build-aux/
 .deps/
 .libs/
 src/main
-test/check_rootdb
-test/check_rootdb.log
-test/check_rootdb.trs
-test/test-suite.log
+test/tests
 test/testingdb/
+testingdb/

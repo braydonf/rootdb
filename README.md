@@ -14,7 +14,7 @@ Store key/value pair data to disk that can be distributed and cryptographically 
 Build requirements:
 
 ```bash
-apt-get install build-essential libtool autotools-dev automake check
+apt-get install build-essential libtool autotools-dev automake
 ```
 
 Library requirements:
@@ -31,7 +31,7 @@ make
 
 To run tests:
 ```bash
-make check
+./test/tests
 ```
 
 ## Related
