@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <assert.h>
+#include <string.h>
 #include "../src/rootdb.h"
 
 int main(void)
@@ -22,10 +23,6 @@ int main(void)
   value.mv_size = sizeof(value_char);
   value.mv_data = value_char;
 
-  printf("key: %p %.*s, data: %p %.*s\n",
-	 key.mv_data,  (int) key.mv_size,  (char *) key.mv_data,
-	 value.mv_data, (int) value.mv_size, (char *) value.mv_data);
-
   status = rootdb_put(&env, dbi, &key, &value);
   assert(status == 0);
 
@@ -33,10 +30,7 @@ int main(void)
 
   status = rootdb_get(&env, dbi, &key, &rvalue);
   assert(status == 0);
-
-  printf("key: %p %.*s, data: %p %.*s\n",
-	 key.mv_data,  (int) key.mv_size,  (char *) key.mv_data,
-	 rvalue.mv_data, (int) rvalue.mv_size, (char *) rvalue.mv_data);
+  assert(strcmp(rvalue.mv_data, value.mv_data) == 0);
 
   rootdb_close(&env, dbi);
 
